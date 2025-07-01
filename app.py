@@ -88,8 +88,17 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
     client_id=CLIENT_ID,
     client_secret=CLIENT_SECRET,
     redirect_uri=REDIRECT_URI,
-    scope='playlist-read-private playlist-modify-private playlist-modify-public user-library-read'
+    scope='playlist-read-private playlist-modify-private playlist-modify-public user-library-read',
+    show_dialog=True
 ))
+
+# Insert authentication check here
+try:
+    current_user = sp.current_user()
+    st.success(f"Authenticated as: {current_user['display_name']}")
+except Exception as e:
+    st.error(f"Authentication failed: {e}")
+    st.stop()
 
 # --- Genre Caching ---
 CACHE_FILE = "genre_cache.json"
