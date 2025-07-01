@@ -8,7 +8,7 @@ import os
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
     client_id='6824ba14a5ef494da520885cc0146d19',
     client_secret='28f13bc3dc114d80abd415b5f5991a38',
-    redirect_uri='https://localhost:8888/callback',
+    redirect_uri='https://spotifysorter.streamlit.app',
     scope='playlist-read-private playlist-modify-private playlist-modify-public'
 ))
 
